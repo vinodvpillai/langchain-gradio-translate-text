@@ -1,0 +1,3 @@
+OPENAI_API_KEY = "<API_KEY>"
+OPENAI_API_HOST = "<URL>"
+OPENAI_MODEL = "<Model_Name>"
