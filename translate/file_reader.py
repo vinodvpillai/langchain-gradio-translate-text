@@ -1,27 +1,27 @@
 import os
 from docx import Document
 from PyPDF2 import PdfFileReader
+from langchain_community.document_loaders import PyPDFLoader,Docx2txtLoader,TextLoader
+from docx import Document as DocxDocument
+import pypandoc
+from io import BytesIO
 
 def read_text_file(file):
-    return file.read().decode("utf-8")
+    loader = TextLoader(file.name)
+    documents = loader.load()
+    return " ".join(doc.page_content for doc in documents)
 
 def read_docx_file(file):
-    document = Document(file)
-    return "\n".join([para.text for para in document.paragraphs])
+    loader = Docx2txtLoader(file.name)
+    documents = loader.load()
+    return " ".join(doc.page_content for doc in documents)
 
 def read_pdf_file(file):
-    pdf_reader = PdfFileReader(file)
-    text = []
-    for page_num in range(pdf_reader.numPages):
-        page = pdf_reader.getPage(page_num)
-        text.append(page.extract_text())
-    return "\n".join(text)
+    loader = PyPDFLoader(file.name)
+    documents = loader.load()
+    return " ".join(doc.page_content for doc in documents)
 
 def read_file(file):
-    file_size = os.fstat(file.fileno()).st_size
-    if file_size > 1 * 1024 * 1024:
-        return None, "Error: File size exceeds 1 MB limit."
-    
     file_name = file.name
     file_extension = os.path.splitext(file_name)[1].lower()
     

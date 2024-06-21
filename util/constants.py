@@ -1,3 +1,3 @@
-OPENAI_API_KEY = "<API_KEY>"
-OPENAI_API_HOST = "<URL>"
-OPENAI_MODEL = "<Model_Name>"
+OPENAI_API_KEY = "<Open API Key>"
+OPENAI_API_HOST = "<Inhouse IP Address>"
+OPENAI_MODEL = "<Model Name>"

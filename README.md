@@ -1,7 +1,7 @@
 # Translation Application
 
 ## Overview
-This application is designed to translate text and documents into various languages using the OpenAI LLM model. It supports multiple file formats for input and provides a user-friendly interface for translation tasks.
+This application is designed to translate text and documents into various languages using the OpenAI LLM model. It supports multiple file formats (.txt, .docx, .pdf) for input and provides a user-friendly interface for translation tasks.
 
 ## Features
 - Allows users to enter text directly.
